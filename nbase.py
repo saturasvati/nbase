@@ -52,6 +52,7 @@ def nbase(x: str | int | float, ibase=10, obase=10, accuracy=10, point="."):
     while integer:
         s += alphabet[integer % obase]
         integer //= obase
+    s = s[::-1]
     if fraction:
         s += point
         i = 0
@@ -67,8 +68,8 @@ def nbase(x: str | int | float, ibase=10, obase=10, accuracy=10, point="."):
 
 
 if __name__ == "__main__":
-    nums = [173,16.7,329,71.2,629,]
+    nums = [173,16.7,329,71.2,629]
     obases = [2,8,16]
-    print(f"{"dec":<10}{"bin":<15}{"oct":<10}{"hex":<10}")
+    print(f"{"dec":<10}{"bin":<15}{"oct":<10}{"hex":<10}{"doz":<10}")
     for num in nums:
-        print(f"{num:<10}{nbase(num,obase=2,accuracy=4):<15}{nbase(num,obase=8,accuracy=4):<10}{nbase(num,obase=16,accuracy=4):<10}")
+        print(f"{num:<10}{nbase(num,obase=2,accuracy=4):<15}{nbase(num,obase=8,accuracy=4):<10}{nbase(num,obase=16,accuracy=4):<10}{nbase(num,obase=12,accuracy=4):<10}")
