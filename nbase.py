@@ -61,15 +61,15 @@ def nbase(x: str | int | float, ibase=10, obase=10, accuracy=10, point="."):
             s += alphabet[int(fraction)]
             fraction = get_fraction(fraction)
             i += 1
+        s = s.rstrip("0")
     if sign == -1:
         s = "-" + s
-    s = s.rstrip("0")
     return s
 
 
 if __name__ == "__main__":
-    nums = [173,16.7,329,71.2,629]
+    nums = [101,185.5,123,534.1,34]
     obases = [2,8,16]
-    print(f"{"dec":<10}{"bin":<15}{"oct":<10}{"hex":<10}{"doz":<10}")
+    print(f"{"dec":<10}{"bin":<18}{"oct":<10}{"hex":<10}{"doz":<10}")
     for num in nums:
-        print(f"{num:<10}{nbase(num,obase=2,accuracy=4):<15}{nbase(num,obase=8,accuracy=4):<10}{nbase(num,obase=16,accuracy=4):<10}{nbase(num,obase=12,accuracy=4):<10}")
+        print(f"{num:<10}{nbase(num,obase=2,accuracy=4):<18}{nbase(num,obase=8,accuracy=4):<10}{nbase(num,obase=16,accuracy=4):<10}{nbase(num,obase=12,accuracy=4):<10}")
